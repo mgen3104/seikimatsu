@@ -1,0 +1,22 @@
+    <div class="content_post">
+      <h2 class="post-title"><%= post.title %></h2>
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <% if user_signed_in? && current_user.id == post.user_id %>
+          <ul class="more_list">
+            <li>
+              <%= link_to '編集', "/posts/#{post.id}/edit", method: :get %>
+            </li>
+            <li>
+              <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+      <%= simple_format(post.content) %>
+      <span class="name">
+        <a href="/users/<%= post.user_id %>">
+          <span>投稿者</span><%= post.user.name %>
+        </a>
+      </span>
+    </div>

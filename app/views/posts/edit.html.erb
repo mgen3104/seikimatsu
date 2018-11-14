@@ -1,0 +1,14 @@
+<div class="contents row">
+  <div class="container">
+    <%= form_for @post do |f| %>
+      <h3>
+        編集する
+      </h3>
+      <%= f.label :タイトル %>
+      <%= f.text_field :title %>
+      <%= f.label :本文 %>
+      <%= f.text_area :content, style: "width: 100%;height: 100px;" %>
+      <%= f.submit "投稿する" %>
+    <% end %>
+  </div>
+</div>
