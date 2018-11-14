@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @posts = Post.order("created_at DESC")
+    @posts = Post.includes(:user).order("updated_at DESC")
   end
 
   def new
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    Post.create(post_params)
     redirect_to controller: :posts, action: :index
   end
 
