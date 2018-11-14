@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Seikimatsu</title>
+    <title>世紀末救世主ブログ</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,7 +17,6 @@
             <span><%= current_user.name %>
             <ul class="user__info">
               <li>
-                <a href="/users/<%= current_user.id %>/edit">ユーザー情報編集</a>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
               </li>
             </ul>
