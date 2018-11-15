@@ -138,6 +138,7 @@ header.header {
   div.header__bar.row {
     position: relative;
     h1.grid-6 {
+      margin: 20px 0 0;
       font-size: 20px;
       line-height: 41px;
       float: left;
@@ -148,17 +149,19 @@ header.header {
       }
     }
     div.grid-6 {
+      margin: 20px 0 0;
       float: right;
       text-align: right;
       a.post {
         @extend .btn;
-        width: 100px;
+        width: 120px;
         display: inline-left;
         margin-left: 10px;
       }
     }
   }
   .user_nav {
+    margin: 20px 0 0;
     position: relative;
     height: 100px;
     position: absolute;
@@ -223,6 +226,7 @@ header.header {
   }
 }
 div.contents.row {
+  margin-top: 50px;
   h2 {
     @include boxBase(20px 0, 0);
     font-weight: normal;
@@ -389,4 +393,15 @@ footer {
   p {
     text-align: center;
   }
+}
+
+.card-content.white-text {
+  height: 150px;
+  overflow: scroll;
+}
+
+.session {
+  margin: 50px;
+  padding: 10px 20px;
+  border: 2px solid $accent;
 }
