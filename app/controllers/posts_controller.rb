@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
+    @post = Post.create(post_params)
     redirect_to controller: :posts, action: :index
   end
 
