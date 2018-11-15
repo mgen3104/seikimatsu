@@ -4,6 +4,9 @@
       <h3>
         記事を投稿
       </h3>
+      <% if flash[:notice] %>
+        <p id="notice"><%= flash[:notice] %></p>
+      <% end %>
       <%= f.label :タイトル %>
       <%= f.text_field :title %>
       <%= f.label :本文 %>
