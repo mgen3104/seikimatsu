@@ -11,15 +11,19 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
-    redirect_to controller: :posts, action: :index
+    post = Post.create(post_params)
+    if post.save
+      redirect_to action: :index
+    else
+      redirect_to :back, notice: "入力されていない項目があります"
+    end
   end
 
   def destroy
     post = Post.find(params[:id])
     if post.user_id == current_user.id
       post.destroy
-    redirect_to controller: :posts, action: :index
+    redirect_to action: :index
     end
   end
 
@@ -31,7 +35,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     if post.user_id == current_user.id
       post.update(post_params)
-    redirect_to controller: :posts, action: :index
+    redirect_to action: :index
     end
   end
 
