@@ -87,7 +87,7 @@ a {
 }
 
 .btn {
-    @include basePadding(8px 20px);
+    @include basePadding(8px 10px);
     font-size: 14px;
     border: 2px solid $accent;
     color: $accent;
@@ -400,7 +400,7 @@ footer {
 }
 
 .card-content.white-text {
-  height: 180px;
+  height: 175px;
   overflow: scroll;
 }
 
@@ -408,4 +408,11 @@ footer {
   margin: 50px;
   padding: 10px 20px;
   border: 2px solid $accent;
+}
+
+.abeshi {
+  @extend .btn;
+  width: 120px;
+  display: inline-left;
+  margin-left: 10px;
 }
