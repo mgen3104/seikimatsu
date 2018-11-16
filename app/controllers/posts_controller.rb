@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     if post.save
       redirect_to action: :index
     else
-      redirect_to :back, notice: "入力されていない項目があります"
+      redirect_to :back, notice: "ケンシロウ「空欄のまま送信するようなババアがいるか」"
     end
   end
 
