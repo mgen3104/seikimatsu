@@ -14,6 +14,14 @@
       $('#notice').fadeIn(1000);
   });
   </script>
+
+  <script>
+    $(function() {
+      $(".abeshi").on("click", function() {
+        $(".card-title").html("<strong>ひでぶっ！！！</strong>");
+      });
+    });
+  </script>
   </head>
 
   <body>
@@ -30,6 +38,7 @@
             </ul>
           </span>
             <a class="post" href="/posts/new">投稿する</a>
+            <div class="abeshi">あべし！！</div>
           </div>
         <% else %>
           <div class="grid-6">
