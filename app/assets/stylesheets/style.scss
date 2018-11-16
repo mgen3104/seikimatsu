@@ -395,9 +395,12 @@ footer {
     text-align: center;
   }
 }
+.card .card-content .card-title{
+  font-size: 30px;
+}
 
 .card-content.white-text {
-  height: 150px;
+  height: 180px;
   overflow: scroll;
 }
 
