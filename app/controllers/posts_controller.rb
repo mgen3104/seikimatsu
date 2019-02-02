@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  before_action :set_post, only: [:edit, :update, :destroy]
   before_action :move_to_index, except: [:index, :show]
 
   def index
@@ -15,36 +16,33 @@ class PostsController < ApplicationController
     if post.save
       redirect_to action: :index
     else
-      redirect_to :back, notice: "ケンシロウ「空欄のまま送信するようなババアがいるか」"
+      redirect_to :back, notice: "ケンシロウ「空欄のまま送信するようなババアがいるか。拳王の手下だな。」"
     end
   end
 
   def destroy
-    post = Post.find(params[:id])
-    if post.user_id == current_user.id
-      post.destroy
-    redirect_to action: :index
+    if @post.user_id == current_user.id
+      @post.destroy
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: '投稿を削除しました。' }
+        format.js
+      end
     end
-  end
-
-  def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    post = Post.find(params[:id])
-    if post.user_id == current_user.id
-      post.update(post_params)
+    if @post.user_id == current_user.id
+      @post.update(post_params)
     redirect_to action: :index
     end
   end
 
-  def show
-    @post = Tweet.find(params[:id])
-    @comments = @tweet.comments.includes(:user)
+  private
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
-  private
   def post_params
     params.require(:post).permit(:title, :content).merge(user_id: current_user.id)
   end

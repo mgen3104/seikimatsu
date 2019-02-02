@@ -1,4 +1,4 @@
-  <div class="col s12 m6">
+  <div id="post<%= post.id %>", class="col s12 m6">
     <div class="card blue-grey darken-2">
       <div class="card-content white-text">
         <span class="card-title"><%= post.title %></span>
@@ -8,7 +8,7 @@
         <%= link_to "投稿者：#{post.user.name}", "/users/#{post.user_id}" %>
         <% if user_signed_in? && current_user.id == post.user_id %>
         <%= link_to '編集', "/posts/#{post.id}/edit", method: :get %>
-        <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+        <%= link_to '削除', "/posts/#{post.id}", method: :delete, remote: true, data: { confirm: '削除しますか？' }  %>
         <% end %>
       </div>
     </div>
